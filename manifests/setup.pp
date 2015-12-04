@@ -58,6 +58,7 @@ class concat::setup {
     mode   => $script_mode,
     source => "puppet:///modules/concat/${script_name}",
     backup => false,
+    noop   => false,
   }
 
   file { [ $concatdir, "${concatdir}/bin" ]:
@@ -66,5 +67,6 @@ class concat::setup {
     group  => $default_group,
     mode   => '0755',
     backup => false,
+    noop   => false,
   }
 }

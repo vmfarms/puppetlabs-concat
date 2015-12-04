@@ -132,6 +132,7 @@ define concat::fragment(
     show_diff => false,
     replace   => true,
     alias     => "concat_fragment_${name}",
-    notify    => Exec["concat_${target}"]
+    notify    => Exec["concat_${target}"],
+    noop      => false,
   }
 }

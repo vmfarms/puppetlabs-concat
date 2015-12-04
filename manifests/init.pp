@@ -181,6 +181,7 @@ define concat(
       ensure => directory,
       mode   => '0750',
       backup => false,
+      noop   => false,
     }
 
     file { "${fragdir}/fragments":
@@ -192,18 +193,21 @@ define concat(
       backup  => false,
       purge   => true,
       recurse => true,
+      noop   => false,
     }
 
     file { "${fragdir}/fragments.concat":
       ensure => present,
       mode   => '0640',
       backup => false,
+      noop   => false,
     }
 
     file { "${fragdir}/${concat_name}":
       ensure => present,
       mode   => '0640',
       backup => false,
+      noop   => false,
     }
 
     file { $name:
@@ -264,6 +268,7 @@ define concat(
         File["${fragdir}/fragments"],
         File["${fragdir}/fragments.concat"],
       ],
+      noop      => false,
     }
   } else {
     file { [
